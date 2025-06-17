@@ -1,0 +1,27 @@
+<!-- domain file -->
+<domain type="xy"> <!--cuts simulation space into a grid-->
+
+<mesh type="uniform" name="tank">
+<origin>-0.00015,0.0</origin>
+<spacing>5e-5,5e-5</spacing>
+<nodes>78, 65</nodes>
+<mesh-bc wall="bottom" type="symmetry" /> 
+</mesh>
+
+<mesh type="uniform" name="inside">
+<origin>0.0037,0.0</origin>
+<spacing>1e-4,1e-4</spacing>
+<nodes>200, 100</nodes>
+<mesh-bc wall="bottom" type="symmetry" /> 
+</mesh>
+
+<!--<mesh type="uniform" name="plume">
+<origin>0.0505,0.0</origin>
+<spacing>2e-4,2e-4</spacing>
+<nodes>200, 80</nodes>
+<mesh-bc wall="right" type="dirichlet" value="0" />
+<mesh-bc wall="bottom" type="symmetry" /> 
+</mesh>-->
+
+
+</domain>
