@@ -1,0 +1,51 @@
+<!-- materials file -->
+<materials>
+
+<material name="adm" type="kinetic">  <!--C10H16-->
+	<molwt>136</molwt> 
+	<charge>0</charge>
+	<spwt>1e11</spwt>
+  <ionization_energy>11.18</ionization_energy>
+</material>
+
+<material name="adm+" type="kinetic">  <!--C10H16-->
+	<molwt>136</molwt> 
+	<charge>1</charge>
+	<spwt>2e3</spwt>
+</material>
+
+<material name="e-" type="kinetic">
+	<!--<molwt>0.000548597</molwt> -->
+	<molwt>0.1</molwt>
+	<charge>-1</charge>
+	<spwt>2e3</spwt>
+</material>
+
+<!--
+<material name="e-" type="boltzmann_electrons">
+	<model>qn</model>
+	<kTe0>5</kTe0>
+</material>
+-->
+
+<material name="steel" type="solid">
+	<molwt>68</molwt> 
+	<density>8000</density>
+</material>
+
+<material name="insulator" type="solid">
+	<molwt>40</molwt> 
+	<density>2000</density>
+</material>
+
+<!--
+<material name="ti_grain" type="grain">
+<molwt>100</molwt>
+<charge>0</charge>
+<density>4506</density>
+<radius>1e-6,2e-5</radius>
+<spwt>1</spwt>
+</material>
+-->
+
+</materials>
