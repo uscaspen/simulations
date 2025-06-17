@@ -1,0 +1,621 @@
+2024/10/31 11:50:11
+================================================================
+> Starfish v0.24
+> 2D Plasma / Rarefied Gas Simulation Code
+> (c) 2012-2022, Particle In Cell Consulting LLC
+> info@particleincell.com, www.particleincell.com
+
+!! This is a development version. The software is provided as-is, 
+!! with no implied or expressed warranties. Report bugs to 
+!! bugs@particleincell.com
+=================================================================
+Added interaction DSMC
+Added interaction MCC
+Added sigma BIRD463
+Added material type SOLID
+Added material type KINETIC
+Added material type FLUID_DIFFUSION
+Added material type BOLTZMANN_ELECTRONS
+Added sigma CONST
+Added sigma POLY
+Added sigma INV
+Added sigma LN
+Added sigma TABLE
+Added interaction SURFACE_HIT
+Added interaction SURFACE_IMPACT
+Added interaction CHEMISTRY
+Added interaction ENERGY_TRANSFER
+Added surface impact model NONE
+Added surface impact model ABSORB
+Added surface impact model SPECULAR
+Added surface impact model DIFFUSE
+Added surface impact model COSINE
+Added surface source UNIFORM
+Added surface source MAXWELLIAN
+Added surface source AMBIENT
+Added surface source COSINE
+Added surface source THERMIONIC
+Added surface source VAPORIZATION
+Added volume source PRELOAD
+Added volume source MAXWELLIAN
+Added solver CONSTANT-EF
+Added solver QN
+Added solver POISSON
+Registered file reader type TECPLOT
+Registered file reader type TABLE
+Loading starfish.xml
+Loading materials.xml
+Loading domain.xml
+Loading boundaries.xml
+Loading interactions.xml
+Processing <note>
+**ASPEN GEC 2023**
+Processing <materials>
+Added KINETIC material 'adm'
+> charge   = 0.0
+> mass = 2.258e-25 (kg)
+> spwt = 1.0E11
+Added KINETIC material 'adm+'
+> charge   = 1.60217646E-19
+> mass = 2.258e-25 (kg)
+> spwt = 2000.0
+Added KINETIC material 'e-'
+> charge   = -1.60217646E-19
+> mass = 1.661e-28 (kg)
+> spwt = 2000.0
+Added SOLID material 'steel'
+Added SOLID material 'insulator'
+Processing <domain>
+Domain type: XY
+Added UNIFORM_MESH
+> nodes   = 78 : 65
+> origin  = -1.5E-4 : 0.0
+> spacing = 5.0E-5 : 5.0E-5
+Added UNIFORM_MESH
+> nodes   = 100 : 66
+> origin  = 0.0037 : 0.0
+> spacing = 1.0E-4 : 1.0E-4
+Processing <boundaries>
+Added solid boundary 'tank'
+Added solid boundary 'anode'
+Added solid boundary 'channel'
+Added solid boundary 'cathode'
+Added solid boundary 'body'
+Processing <material_interactions>
+Added SURFACE_IMPACT adm + steel -> adm
+> probability   = 1.0
+> restitution  = 1.0
+> thermal accomodation = 0.0
+Added SURFACE_IMPACT e- + steel -> e-
+> probability   = 1.0
+> restitution  = 1.0
+> thermal accomodation = 0.0
+Processing <output>
+Initializing domain
+Processing <sources>
+Added MAXWELLIAN_VOLUME source 'spot'
+Processing <solver>
+Added LINEAR POISSON solver
+> eps_r: 1.0
+> method: GS
+> Debye length: 0.000235 (m)
+> max_it (linear) = 5000
+> tol (linear) = 0.001
+> nl_max_it (non-linear) = 50
+> nl_tol (non-linear) = 1.0E-4
+> initial only = false
+Processing <animation>
+Processing <particle_trace>
+Processing <restart>
+Processing <averaging>
+ Added: nd.adm+
+ Added: nd.adm
+ Added: nd.e-
+ Added: u.adm
+ Added: v.adm
+ Added: u.adm+
+ Added: v.adm+
+ Added: u.e-
+ Added: v.e-
+Processing <time>
+Time:
+>dt: 1.0E-8
+>max_it: 1000
+>steady_sate: 5000
+Processing <starfish>
+Starting main loop
+Cleared samples in Material adm
+Cleared samples in Material adm+
+Cleared samples in Material e-
+it: 1	adm: 44280 adm+: 0 e-: 0 
+it: 2	adm: 88560 adm+: 0 e-: 0 
+it: 3	adm: 132841 adm+: 0 e-: 0 
+it: 4	adm: 177121 adm+: 0 e-: 0 
+it: 5	adm: 221402 adm+: 0 e-: 0 
+it: 6	adm: 265682 adm+: 0 e-: 0 
+it: 7	adm: 309963 adm+: 0 e-: 0 
+it: 8	adm: 354243 adm+: 0 e-: 0 
+it: 9	adm: 398524 adm+: 0 e-: 0 
+it: 10	adm: 442804 adm+: 0 e-: 0 
+it: 11	adm: 442804 adm+: 0 e-: 0 
+it: 12	adm: 442804 adm+: 0 e-: 0 
+it: 13	adm: 442804 adm+: 0 e-: 0 
+it: 14	adm: 442802 adm+: 0 e-: 0 
+it: 15	adm: 442799 adm+: 0 e-: 0 
+it: 16	adm: 442799 adm+: 0 e-: 0 
+it: 17	adm: 442797 adm+: 0 e-: 0 
+it: 18	adm: 442794 adm+: 0 e-: 0 
+it: 19	adm: 442788 adm+: 0 e-: 0 
+it: 20	adm: 442783 adm+: 0 e-: 0 
+it: 21	adm: 442776 adm+: 0 e-: 0 
+it: 22	adm: 442762 adm+: 0 e-: 0 
+it: 23	adm: 442753 adm+: 0 e-: 0 
+it: 24	adm: 442736 adm+: 0 e-: 0 
+it: 25	adm: 442712 adm+: 0 e-: 0 
+it: 26	adm: 442680 adm+: 0 e-: 0 
+it: 27	adm: 442657 adm+: 0 e-: 0 
+it: 28	adm: 442631 adm+: 0 e-: 0 
+it: 29	adm: 442592 adm+: 0 e-: 0 
+it: 30	adm: 442562 adm+: 0 e-: 0 
+it: 31	adm: 442504 adm+: 0 e-: 0 
+it: 32	adm: 442457 adm+: 0 e-: 0 
+it: 33	adm: 442405 adm+: 0 e-: 0 
+it: 34	adm: 442358 adm+: 0 e-: 0 
+it: 35	adm: 442297 adm+: 0 e-: 0 
+it: 36	adm: 442243 adm+: 0 e-: 0 
+it: 37	adm: 442181 adm+: 0 e-: 0 
+it: 38	adm: 442114 adm+: 0 e-: 0 
+it: 39	adm: 442057 adm+: 0 e-: 0 
+it: 40	adm: 441980 adm+: 0 e-: 0 
+it: 41	adm: 441913 adm+: 0 e-: 0 
+it: 42	adm: 441841 adm+: 0 e-: 0 
+it: 43	adm: 441750 adm+: 0 e-: 0 
+it: 44	adm: 441674 adm+: 0 e-: 0 
+it: 45	adm: 441594 adm+: 0 e-: 0 
+it: 46	adm: 441521 adm+: 0 e-: 0 
+it: 47	adm: 441442 adm+: 0 e-: 0 
+it: 48	adm: 441353 adm+: 0 e-: 0 
+it: 49	adm: 441260 adm+: 0 e-: 0 
+it: 50	adm: 441161 adm+: 0 e-: 0 
+it: 51	adm: 441064 adm+: 0 e-: 0 
+it: 52	adm: 440971 adm+: 0 e-: 0 
+it: 53	adm: 440873 adm+: 0 e-: 0 
+it: 54	adm: 440781 adm+: 0 e-: 0 
+it: 55	adm: 440666 adm+: 0 e-: 0 
+it: 56	adm: 440547 adm+: 0 e-: 0 
+it: 57	adm: 440448 adm+: 0 e-: 0 
+it: 58	adm: 440352 adm+: 0 e-: 0 
+it: 59	adm: 440251 adm+: 0 e-: 0 
+it: 60	adm: 440132 adm+: 0 e-: 0 
+it: 61	adm: 440017 adm+: 0 e-: 0 
+it: 62	adm: 439901 adm+: 0 e-: 0 
+it: 63	adm: 439778 adm+: 0 e-: 0 
+it: 64	adm: 439664 adm+: 0 e-: 0 
+it: 65	adm: 439546 adm+: 0 e-: 0 
+it: 66	adm: 439416 adm+: 0 e-: 0 
+it: 67	adm: 439320 adm+: 0 e-: 0 
+it: 68	adm: 439208 adm+: 0 e-: 0 
+it: 69	adm: 439082 adm+: 0 e-: 0 
+it: 70	adm: 438954 adm+: 0 e-: 0 
+it: 71	adm: 438841 adm+: 0 e-: 0 
+it: 72	adm: 438738 adm+: 0 e-: 0 
+it: 73	adm: 438627 adm+: 0 e-: 0 
+it: 74	adm: 438511 adm+: 0 e-: 0 
+it: 75	adm: 438390 adm+: 0 e-: 0 
+it: 76	adm: 438259 adm+: 0 e-: 0 
+it: 77	adm: 438131 adm+: 0 e-: 0 
+it: 78	adm: 438014 adm+: 0 e-: 0 
+it: 79	adm: 437869 adm+: 0 e-: 0 
+it: 80	adm: 437742 adm+: 0 e-: 0 
+it: 81	adm: 437619 adm+: 0 e-: 0 
+it: 82	adm: 437493 adm+: 0 e-: 0 
+it: 83	adm: 437343 adm+: 0 e-: 0 
+it: 84	adm: 437220 adm+: 0 e-: 0 
+it: 85	adm: 437096 adm+: 0 e-: 0 
+it: 86	adm: 436961 adm+: 0 e-: 0 
+it: 87	adm: 436814 adm+: 0 e-: 0 
+it: 88	adm: 436663 adm+: 0 e-: 0 
+it: 89	adm: 436525 adm+: 0 e-: 0 
+it: 90	adm: 436393 adm+: 0 e-: 0 
+it: 91	adm: 436226 adm+: 0 e-: 0 
+it: 92	adm: 436094 adm+: 0 e-: 0 
+it: 93	adm: 435950 adm+: 0 e-: 0 
+it: 94	adm: 435797 adm+: 0 e-: 0 
+it: 95	adm: 435666 adm+: 0 e-: 0 
+it: 96	adm: 435521 adm+: 0 e-: 0 
+it: 97	adm: 435366 adm+: 0 e-: 0 
+it: 98	adm: 435212 adm+: 0 e-: 0 
+it: 99	adm: 435061 adm+: 0 e-: 0 
+it: 100	adm: 434918 adm+: 0 e-: 0 
+it: 101	adm: 434765 adm+: 0 e-: 0 
+it: 102	adm: 434617 adm+: 0 e-: 0 
+it: 103	adm: 434446 adm+: 0 e-: 0 
+it: 104	adm: 434311 adm+: 0 e-: 0 
+it: 105	adm: 434155 adm+: 0 e-: 0 
+it: 106	adm: 434004 adm+: 0 e-: 0 
+it: 107	adm: 433834 adm+: 0 e-: 0 
+it: 108	adm: 433681 adm+: 0 e-: 0 
+it: 109	adm: 433546 adm+: 0 e-: 0 
+it: 110	adm: 433380 adm+: 0 e-: 0 
+it: 111	adm: 433214 adm+: 0 e-: 0 
+it: 112	adm: 433040 adm+: 0 e-: 0 
+it: 113	adm: 432894 adm+: 0 e-: 0 
+it: 114	adm: 432747 adm+: 0 e-: 0 
+it: 115	adm: 432571 adm+: 0 e-: 0 
+it: 116	adm: 432421 adm+: 0 e-: 0 
+it: 117	adm: 432258 adm+: 0 e-: 0 
+it: 118	adm: 432078 adm+: 0 e-: 0 
+it: 119	adm: 431925 adm+: 0 e-: 0 
+it: 120	adm: 431765 adm+: 0 e-: 0 
+it: 121	adm: 431595 adm+: 0 e-: 0 
+it: 122	adm: 431449 adm+: 0 e-: 0 
+it: 123	adm: 431292 adm+: 0 e-: 0 
+it: 124	adm: 431124 adm+: 0 e-: 0 
+it: 125	adm: 430954 adm+: 0 e-: 0 
+it: 126	adm: 430797 adm+: 0 e-: 0 
+it: 127	adm: 430645 adm+: 0 e-: 0 
+it: 128	adm: 430484 adm+: 0 e-: 0 
+it: 129	adm: 430315 adm+: 0 e-: 0 
+it: 130	adm: 430150 adm+: 0 e-: 0 
+it: 131	adm: 429983 adm+: 0 e-: 0 
+it: 132	adm: 429828 adm+: 0 e-: 0 
+it: 133	adm: 429671 adm+: 0 e-: 0 
+it: 134	adm: 429514 adm+: 0 e-: 0 
+it: 135	adm: 429334 adm+: 0 e-: 0 
+it: 136	adm: 429157 adm+: 0 e-: 0 
+it: 137	adm: 429000 adm+: 0 e-: 0 
+it: 138	adm: 428817 adm+: 0 e-: 0 
+it: 139	adm: 428665 adm+: 0 e-: 0 
+it: 140	adm: 428492 adm+: 0 e-: 0 
+it: 141	adm: 428307 adm+: 0 e-: 0 
+it: 142	adm: 428120 adm+: 0 e-: 0 
+it: 143	adm: 427951 adm+: 0 e-: 0 
+it: 144	adm: 427772 adm+: 0 e-: 0 
+it: 145	adm: 427587 adm+: 0 e-: 0 
+it: 146	adm: 427419 adm+: 0 e-: 0 
+it: 147	adm: 427250 adm+: 0 e-: 0 
+it: 148	adm: 427103 adm+: 0 e-: 0 
+it: 149	adm: 426915 adm+: 0 e-: 0 
+it: 150	adm: 426737 adm+: 0 e-: 0 
+it: 151	adm: 426521 adm+: 0 e-: 0 
+it: 152	adm: 426343 adm+: 0 e-: 0 
+it: 153	adm: 426179 adm+: 0 e-: 0 
+it: 154	adm: 425990 adm+: 0 e-: 0 
+it: 155	adm: 425826 adm+: 0 e-: 0 
+it: 156	adm: 425652 adm+: 0 e-: 0 
+it: 157	adm: 425486 adm+: 0 e-: 0 
+it: 158	adm: 425306 adm+: 0 e-: 0 
+it: 159	adm: 425140 adm+: 0 e-: 0 
+it: 160	adm: 424975 adm+: 0 e-: 0 
+it: 161	adm: 424800 adm+: 0 e-: 0 
+it: 162	adm: 424631 adm+: 0 e-: 0 
+it: 163	adm: 424465 adm+: 0 e-: 0 
+it: 164	adm: 424301 adm+: 0 e-: 0 
+it: 165	adm: 424150 adm+: 0 e-: 0 
+it: 166	adm: 423952 adm+: 0 e-: 0 
+it: 167	adm: 423775 adm+: 0 e-: 0 
+it: 168	adm: 423587 adm+: 0 e-: 0 
+it: 169	adm: 423392 adm+: 0 e-: 0 
+it: 170	adm: 423217 adm+: 0 e-: 0 
+it: 171	adm: 423022 adm+: 0 e-: 0 
+it: 172	adm: 422827 adm+: 0 e-: 0 
+it: 173	adm: 422640 adm+: 0 e-: 0 
+it: 174	adm: 422463 adm+: 0 e-: 0 
+it: 175	adm: 422281 adm+: 0 e-: 0 
+it: 176	adm: 422097 adm+: 0 e-: 0 
+it: 177	adm: 421924 adm+: 0 e-: 0 
+it: 178	adm: 421734 adm+: 0 e-: 0 
+it: 179	adm: 421550 adm+: 0 e-: 0 
+it: 180	adm: 421342 adm+: 0 e-: 0 
+it: 181	adm: 421152 adm+: 0 e-: 0 
+it: 182	adm: 420960 adm+: 0 e-: 0 
+it: 183	adm: 420789 adm+: 0 e-: 0 
+it: 184	adm: 420601 adm+: 0 e-: 0 
+it: 185	adm: 420420 adm+: 0 e-: 0 
+it: 186	adm: 420230 adm+: 0 e-: 0 
+it: 187	adm: 420027 adm+: 0 e-: 0 
+it: 188	adm: 419840 adm+: 0 e-: 0 
+it: 189	adm: 419639 adm+: 0 e-: 0 
+it: 190	adm: 419468 adm+: 0 e-: 0 
+it: 191	adm: 419263 adm+: 0 e-: 0 
+it: 192	adm: 419069 adm+: 0 e-: 0 
+it: 193	adm: 418873 adm+: 0 e-: 0 
+it: 194	adm: 418704 adm+: 0 e-: 0 
+it: 195	adm: 418539 adm+: 0 e-: 0 
+it: 196	adm: 418371 adm+: 0 e-: 0 
+it: 197	adm: 418169 adm+: 0 e-: 0 
+it: 198	adm: 417976 adm+: 0 e-: 0 
+it: 199	adm: 417784 adm+: 0 e-: 0 
+it: 200	adm: 417590 adm+: 0 e-: 0 
+Cleared samples in Material adm
+Cleared samples in Material adm+
+Cleared samples in Material e-
+it: 201	adm: 417405 adm+: 0 e-: 0 
+it: 202	adm: 417221 adm+: 0 e-: 0 
+it: 203	adm: 417026 adm+: 0 e-: 0 
+it: 204	adm: 416814 adm+: 0 e-: 0 
+it: 205	adm: 416618 adm+: 0 e-: 0 
+it: 206	adm: 416445 adm+: 0 e-: 0 
+it: 207	adm: 416265 adm+: 0 e-: 0 
+it: 208	adm: 416086 adm+: 0 e-: 0 
+it: 209	adm: 415890 adm+: 0 e-: 0 
+it: 210	adm: 415725 adm+: 0 e-: 0 
+it: 211	adm: 415526 adm+: 0 e-: 0 
+it: 212	adm: 415341 adm+: 0 e-: 0 
+it: 213	adm: 415161 adm+: 0 e-: 0 
+it: 214	adm: 414957 adm+: 0 e-: 0 
+it: 215	adm: 414754 adm+: 0 e-: 0 
+it: 216	adm: 414559 adm+: 0 e-: 0 
+it: 217	adm: 414364 adm+: 0 e-: 0 
+it: 218	adm: 414168 adm+: 0 e-: 0 
+it: 219	adm: 413962 adm+: 0 e-: 0 
+it: 220	adm: 413763 adm+: 0 e-: 0 
+it: 221	adm: 413558 adm+: 0 e-: 0 
+it: 222	adm: 413335 adm+: 0 e-: 0 
+it: 223	adm: 413161 adm+: 0 e-: 0 
+it: 224	adm: 412982 adm+: 0 e-: 0 
+it: 225	adm: 412798 adm+: 0 e-: 0 
+it: 226	adm: 412597 adm+: 0 e-: 0 
+it: 227	adm: 412416 adm+: 0 e-: 0 
+it: 228	adm: 412233 adm+: 0 e-: 0 
+it: 229	adm: 412036 adm+: 0 e-: 0 
+it: 230	adm: 411828 adm+: 0 e-: 0 
+it: 231	adm: 411661 adm+: 0 e-: 0 
+it: 232	adm: 411474 adm+: 0 e-: 0 
+it: 233	adm: 411292 adm+: 0 e-: 0 
+it: 234	adm: 411108 adm+: 0 e-: 0 
+it: 235	adm: 410904 adm+: 0 e-: 0 
+it: 236	adm: 410717 adm+: 0 e-: 0 
+it: 237	adm: 410529 adm+: 0 e-: 0 
+it: 238	adm: 410317 adm+: 0 e-: 0 
+it: 239	adm: 410116 adm+: 0 e-: 0 
+it: 240	adm: 409916 adm+: 0 e-: 0 
+it: 241	adm: 409724 adm+: 0 e-: 0 
+it: 242	adm: 409522 adm+: 0 e-: 0 
+it: 243	adm: 409347 adm+: 0 e-: 0 
+it: 244	adm: 409170 adm+: 0 e-: 0 
+it: 245	adm: 408984 adm+: 0 e-: 0 
+it: 246	adm: 408822 adm+: 0 e-: 0 
+it: 247	adm: 408611 adm+: 0 e-: 0 
+it: 248	adm: 408422 adm+: 0 e-: 0 
+it: 249	adm: 408221 adm+: 0 e-: 0 
+it: 250	adm: 408042 adm+: 0 e-: 0 
+it: 251	adm: 407838 adm+: 0 e-: 0 
+it: 252	adm: 407633 adm+: 0 e-: 0 
+it: 253	adm: 407464 adm+: 0 e-: 0 
+it: 254	adm: 407253 adm+: 0 e-: 0 
+it: 255	adm: 407075 adm+: 0 e-: 0 
+it: 256	adm: 406878 adm+: 0 e-: 0 
+it: 257	adm: 406699 adm+: 0 e-: 0 
+it: 258	adm: 406480 adm+: 0 e-: 0 
+it: 259	adm: 406259 adm+: 0 e-: 0 
+it: 260	adm: 406065 adm+: 0 e-: 0 
+it: 261	adm: 405876 adm+: 0 e-: 0 
+it: 262	adm: 405704 adm+: 0 e-: 0 
+it: 263	adm: 405458 adm+: 0 e-: 0 
+it: 264	adm: 405259 adm+: 0 e-: 0 
+it: 265	adm: 405063 adm+: 0 e-: 0 
+it: 266	adm: 404856 adm+: 0 e-: 0 
+it: 267	adm: 404682 adm+: 0 e-: 0 
+it: 268	adm: 404494 adm+: 0 e-: 0 
+it: 269	adm: 404288 adm+: 0 e-: 0 
+it: 270	adm: 404080 adm+: 0 e-: 0 
+it: 271	adm: 403876 adm+: 0 e-: 0 
+it: 272	adm: 403698 adm+: 0 e-: 0 
+it: 273	adm: 403519 adm+: 0 e-: 0 
+it: 274	adm: 403317 adm+: 0 e-: 0 
+it: 275	adm: 403129 adm+: 0 e-: 0 
+it: 276	adm: 402932 adm+: 0 e-: 0 
+it: 277	adm: 402728 adm+: 0 e-: 0 
+it: 278	adm: 402549 adm+: 0 e-: 0 
+it: 279	adm: 402370 adm+: 0 e-: 0 
+it: 280	adm: 402149 adm+: 0 e-: 0 
+it: 281	adm: 401957 adm+: 0 e-: 0 
+it: 282	adm: 401757 adm+: 0 e-: 0 
+it: 283	adm: 401570 adm+: 0 e-: 0 
+it: 284	adm: 401358 adm+: 0 e-: 0 
+it: 285	adm: 401160 adm+: 0 e-: 0 
+it: 286	adm: 400973 adm+: 0 e-: 0 
+it: 287	adm: 400792 adm+: 0 e-: 0 
+it: 288	adm: 400609 adm+: 0 e-: 0 
+it: 289	adm: 400420 adm+: 0 e-: 0 
+it: 290	adm: 400217 adm+: 0 e-: 0 
+it: 291	adm: 400038 adm+: 0 e-: 0 
+it: 292	adm: 399850 adm+: 0 e-: 0 
+it: 293	adm: 399661 adm+: 0 e-: 0 
+it: 294	adm: 399457 adm+: 0 e-: 0 
+it: 295	adm: 399268 adm+: 0 e-: 0 
+it: 296	adm: 399065 adm+: 0 e-: 0 
+it: 297	adm: 398853 adm+: 0 e-: 0 
+it: 298	adm: 398665 adm+: 0 e-: 0 
+it: 299	adm: 398464 adm+: 0 e-: 0 
+it: 300	adm: 398278 adm+: 0 e-: 0 
+it: 301	adm: 398068 adm+: 0 e-: 0 
+it: 302	adm: 397899 adm+: 0 e-: 0 
+it: 303	adm: 397711 adm+: 0 e-: 0 
+it: 304	adm: 397518 adm+: 0 e-: 0 
+it: 305	adm: 397323 adm+: 0 e-: 0 
+it: 306	adm: 397137 adm+: 0 e-: 0 
+it: 307	adm: 396935 adm+: 0 e-: 0 
+it: 308	adm: 396735 adm+: 0 e-: 0 
+it: 309	adm: 396550 adm+: 0 e-: 0 
+it: 310	adm: 396336 adm+: 0 e-: 0 
+it: 311	adm: 396149 adm+: 0 e-: 0 
+it: 312	adm: 395963 adm+: 0 e-: 0 
+it: 313	adm: 395745 adm+: 0 e-: 0 
+it: 314	adm: 395539 adm+: 0 e-: 0 
+it: 315	adm: 395327 adm+: 0 e-: 0 
+it: 316	adm: 395108 adm+: 0 e-: 0 
+it: 317	adm: 394920 adm+: 0 e-: 0 
+it: 318	adm: 394711 adm+: 0 e-: 0 
+it: 319	adm: 394524 adm+: 0 e-: 0 
+it: 320	adm: 394331 adm+: 0 e-: 0 
+it: 321	adm: 394150 adm+: 0 e-: 0 
+it: 322	adm: 393931 adm+: 0 e-: 0 
+it: 323	adm: 393741 adm+: 0 e-: 0 
+it: 324	adm: 393535 adm+: 0 e-: 0 
+it: 325	adm: 393341 adm+: 0 e-: 0 
+it: 326	adm: 393156 adm+: 0 e-: 0 
+it: 327	adm: 392964 adm+: 0 e-: 0 
+it: 328	adm: 392791 adm+: 0 e-: 0 
+it: 329	adm: 392579 adm+: 0 e-: 0 
+it: 330	adm: 392381 adm+: 0 e-: 0 
+it: 331	adm: 392172 adm+: 0 e-: 0 
+it: 332	adm: 391991 adm+: 0 e-: 0 
+it: 333	adm: 391788 adm+: 0 e-: 0 
+it: 334	adm: 391594 adm+: 0 e-: 0 
+it: 335	adm: 391383 adm+: 0 e-: 0 
+it: 336	adm: 391187 adm+: 0 e-: 0 
+it: 337	adm: 390958 adm+: 0 e-: 0 
+it: 338	adm: 390768 adm+: 0 e-: 0 
+it: 339	adm: 390584 adm+: 0 e-: 0 
+it: 340	adm: 390358 adm+: 0 e-: 0 
+it: 341	adm: 390155 adm+: 0 e-: 0 
+it: 342	adm: 389944 adm+: 0 e-: 0 
+it: 343	adm: 389747 adm+: 0 e-: 0 
+it: 344	adm: 389541 adm+: 0 e-: 0 
+it: 345	adm: 389345 adm+: 0 e-: 0 
+it: 346	adm: 389134 adm+: 0 e-: 0 
+it: 347	adm: 388942 adm+: 0 e-: 0 
+it: 348	adm: 388761 adm+: 0 e-: 0 
+it: 349	adm: 388556 adm+: 0 e-: 0 
+it: 350	adm: 388383 adm+: 0 e-: 0 
+it: 351	adm: 388176 adm+: 0 e-: 0 
+it: 352	adm: 387967 adm+: 0 e-: 0 
+it: 353	adm: 387764 adm+: 0 e-: 0 
+it: 354	adm: 387563 adm+: 0 e-: 0 
+it: 355	adm: 387360 adm+: 0 e-: 0 
+it: 356	adm: 387164 adm+: 0 e-: 0 
+it: 357	adm: 386964 adm+: 0 e-: 0 
+it: 358	adm: 386776 adm+: 0 e-: 0 
+it: 359	adm: 386554 adm+: 0 e-: 0 
+it: 360	adm: 386392 adm+: 0 e-: 0 
+it: 361	adm: 386198 adm+: 0 e-: 0 
+it: 362	adm: 386028 adm+: 0 e-: 0 
+it: 363	adm: 385814 adm+: 0 e-: 0 
+it: 364	adm: 385612 adm+: 0 e-: 0 
+it: 365	adm: 385422 adm+: 0 e-: 0 
+it: 366	adm: 385215 adm+: 0 e-: 0 
+it: 367	adm: 385001 adm+: 0 e-: 0 
+it: 368	adm: 384819 adm+: 0 e-: 0 
+it: 369	adm: 384647 adm+: 0 e-: 0 
+it: 370	adm: 384469 adm+: 0 e-: 0 
+it: 371	adm: 384262 adm+: 0 e-: 0 
+it: 372	adm: 384094 adm+: 0 e-: 0 
+it: 373	adm: 383901 adm+: 0 e-: 0 
+it: 374	adm: 383678 adm+: 0 e-: 0 
+it: 375	adm: 383463 adm+: 0 e-: 0 
+it: 376	adm: 383252 adm+: 0 e-: 0 
+it: 377	adm: 383055 adm+: 0 e-: 0 
+it: 378	adm: 382858 adm+: 0 e-: 0 
+it: 379	adm: 382641 adm+: 0 e-: 0 
+it: 380	adm: 382478 adm+: 0 e-: 0 
+it: 381	adm: 382278 adm+: 0 e-: 0 
+it: 382	adm: 382081 adm+: 0 e-: 0 
+it: 383	adm: 381878 adm+: 0 e-: 0 
+it: 384	adm: 381676 adm+: 0 e-: 0 
+it: 385	adm: 381488 adm+: 0 e-: 0 
+it: 386	adm: 381266 adm+: 0 e-: 0 
+it: 387	adm: 381082 adm+: 0 e-: 0 
+it: 388	adm: 380889 adm+: 0 e-: 0 
+it: 389	adm: 380684 adm+: 0 e-: 0 
+it: 390	adm: 380465 adm+: 0 e-: 0 
+it: 391	adm: 380276 adm+: 0 e-: 0 
+it: 392	adm: 380096 adm+: 0 e-: 0 
+it: 393	adm: 379889 adm+: 0 e-: 0 
+it: 394	adm: 379679 adm+: 0 e-: 0 
+it: 395	adm: 379487 adm+: 0 e-: 0 
+it: 396	adm: 379274 adm+: 0 e-: 0 
+it: 397	adm: 379080 adm+: 0 e-: 0 
+it: 398	adm: 378880 adm+: 0 e-: 0 
+it: 399	adm: 378677 adm+: 0 e-: 0 
+it: 400	adm: 378468 adm+: 0 e-: 0 
+Cleared samples in Material adm
+Cleared samples in Material adm+
+Cleared samples in Material e-
+it: 401	adm: 378287 adm+: 0 e-: 0 
+it: 402	adm: 378103 adm+: 0 e-: 0 
+it: 403	adm: 377918 adm+: 0 e-: 0 
+it: 404	adm: 377719 adm+: 0 e-: 0 
+it: 405	adm: 377525 adm+: 0 e-: 0 
+it: 406	adm: 377329 adm+: 0 e-: 0 
+it: 407	adm: 377122 adm+: 0 e-: 0 
+it: 408	adm: 376936 adm+: 0 e-: 0 
+it: 409	adm: 376723 adm+: 0 e-: 0 
+it: 410	adm: 376525 adm+: 0 e-: 0 
+it: 411	adm: 376325 adm+: 0 e-: 0 
+it: 412	adm: 376143 adm+: 0 e-: 0 
+it: 413	adm: 375944 adm+: 0 e-: 0 
+it: 414	adm: 375763 adm+: 0 e-: 0 
+it: 415	adm: 375558 adm+: 0 e-: 0 
+it: 416	adm: 375369 adm+: 0 e-: 0 
+it: 417	adm: 375149 adm+: 0 e-: 0 
+it: 418	adm: 374933 adm+: 0 e-: 0 
+it: 419	adm: 374742 adm+: 0 e-: 0 
+it: 420	adm: 374555 adm+: 0 e-: 0 
+it: 421	adm: 374352 adm+: 0 e-: 0 
+it: 422	adm: 374164 adm+: 0 e-: 0 
+it: 423	adm: 373951 adm+: 0 e-: 0 
+it: 424	adm: 373760 adm+: 0 e-: 0 
+it: 425	adm: 373546 adm+: 0 e-: 0 
+it: 426	adm: 373353 adm+: 0 e-: 0 
+it: 427	adm: 373167 adm+: 0 e-: 0 
+it: 428	adm: 372980 adm+: 0 e-: 0 
+it: 429	adm: 372797 adm+: 0 e-: 0 
+it: 430	adm: 372603 adm+: 0 e-: 0 
+it: 431	adm: 372414 adm+: 0 e-: 0 
+it: 432	adm: 372240 adm+: 0 e-: 0 
+it: 433	adm: 372060 adm+: 0 e-: 0 
+it: 434	adm: 371852 adm+: 0 e-: 0 
+it: 435	adm: 371671 adm+: 0 e-: 0 
+it: 436	adm: 371477 adm+: 0 e-: 0 
+it: 437	adm: 371286 adm+: 0 e-: 0 
+it: 438	adm: 371116 adm+: 0 e-: 0 
+it: 439	adm: 370936 adm+: 0 e-: 0 
+it: 440	adm: 370762 adm+: 0 e-: 0 
+it: 441	adm: 370590 adm+: 0 e-: 0 
+it: 442	adm: 370410 adm+: 0 e-: 0 
+it: 443	adm: 370212 adm+: 0 e-: 0 
+it: 444	adm: 370022 adm+: 0 e-: 0 
+it: 445	adm: 369817 adm+: 0 e-: 0 
+it: 446	adm: 369611 adm+: 0 e-: 0 
+it: 447	adm: 369450 adm+: 0 e-: 0 
+it: 448	adm: 369236 adm+: 0 e-: 0 
+it: 449	adm: 369027 adm+: 0 e-: 0 
+it: 450	adm: 368816 adm+: 0 e-: 0 
+it: 451	adm: 368629 adm+: 0 e-: 0 
+it: 452	adm: 368429 adm+: 0 e-: 0 
+it: 453	adm: 368232 adm+: 0 e-: 0 
+it: 454	adm: 368036 adm+: 0 e-: 0 
+it: 455	adm: 367796 adm+: 0 e-: 0 
+it: 456	adm: 367591 adm+: 0 e-: 0 
+it: 457	adm: 367424 adm+: 0 e-: 0 
+it: 458	adm: 367232 adm+: 0 e-: 0 
+it: 459	adm: 367044 adm+: 0 e-: 0 
+it: 460	adm: 366856 adm+: 0 e-: 0 
+it: 461	adm: 366664 adm+: 0 e-: 0 
+it: 462	adm: 366484 adm+: 0 e-: 0 
+it: 463	adm: 366288 adm+: 0 e-: 0 
+it: 464	adm: 366092 adm+: 0 e-: 0 
+it: 465	adm: 365906 adm+: 0 e-: 0 
+it: 466	adm: 365703 adm+: 0 e-: 0 
+it: 467	adm: 365513 adm+: 0 e-: 0 
+it: 468	adm: 365307 adm+: 0 e-: 0 
+it: 469	adm: 365092 adm+: 0 e-: 0 
+it: 470	adm: 364900 adm+: 0 e-: 0 
+it: 471	adm: 364711 adm+: 0 e-: 0 
+it: 472	adm: 364525 adm+: 0 e-: 0 
+it: 473	adm: 364333 adm+: 0 e-: 0 
+it: 474	adm: 364137 adm+: 0 e-: 0 
+it: 475	adm: 363951 adm+: 0 e-: 0 
+it: 476	adm: 363763 adm+: 0 e-: 0 
+it: 477	adm: 363552 adm+: 0 e-: 0 
+it: 478	adm: 363356 adm+: 0 e-: 0 
+it: 479	adm: 363191 adm+: 0 e-: 0 
+it: 480	adm: 363019 adm+: 0 e-: 0 
+it: 481	adm: 362819 adm+: 0 e-: 0 
+it: 482	adm: 362612 adm+: 0 e-: 0 
+it: 483	adm: 362439 adm+: 0 e-: 0 
+it: 484	adm: 362278 adm+: 0 e-: 0 
+it: 485	adm: 362076 adm+: 0 e-: 0 
+it: 486	adm: 361878 adm+: 0 e-: 0 
