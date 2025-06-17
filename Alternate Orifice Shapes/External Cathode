@@ -1,0 +1,34 @@
+<boundaries units="in">
+
+<boundary name="tank" type="solid" material="insulator" value="0" reverse="true">
+<path>
+M 0 0 L 0 0.12, 0.14 0.12, 0.14 0.02, 0.15 0.02, 0.15 0.12
+</path>
+</boundary>
+
+<boundary name="anode" type="solid" material="steel" value="2000" reverse="true">
+<path>
+M tank:last L 0.15 0.25
+</path>
+</boundary>
+
+<boundary name="channel" type="solid" material="insulator" value="150" reverse="true">
+<path>
+M anode:last L 0.41 0.25, 0.41 0.04, 0.42 0.04
+</path>
+</boundary>
+
+<boundary name="cathode" type="solid" material="steel" value="-20" reverse="true">
+<path>
+M channel:last L 0.42 0.08
+</path>
+</boundary>
+
+<boundary name="body" type="solid" material="insulator" value="0" reverse="true">
+<path>
+M cathode:last L 0.42 0.28
+</path>
+</boundary>
+
+
+</boundaries>
