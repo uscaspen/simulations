@@ -1,0 +1,122 @@
+<!-- starfish input file for GEC2023 ASPEN talk-->
+<simulation>    
+<note>ASPEN GEC 2023</note>
+
+<!-- load input files -->
+<load>materials.xml</load>
+<load>domain.xml</load> <!--physical region that the reaction takes place in-->
+<load>boundaries.xml</load>
+<load>interactions.xml</load> <!--defines how the materials interact together-->
+
+<output type="boundaries" file_name="results/surf.vtp" format="vtk">
+</output>
+
+<sources>
+
+<volume_source name="spot" type="maxwellian"> <!--setting in initial parameters-->
+<material>adm</material>
+<mdot>1e-1</mdot> <!--mass flow rate-->
+<temperature>350</temperature>	
+<v_drift>0,0</v_drift> 
+<shape>rectangle</shape>
+<x0>1e-3, 0.0</x0> <!--shows where the rectangle is, between x0 and x1 (opposite corners of rectanble)-->
+<x1>1e-2, 3.0e-3</x1>
+<end_it>100</end_it> <!--how many interations before spawning new adamantane-->
+</volume_source>	
+
+<!--
+<volume_source name="spot" type="maxwellian">
+<material>adm+</material>
+<mdot>1e-9</mdot>
+<temperature>100</temperature>	
+<v_drift>0,0</v_drift> 
+<shape>rectangle</shape>
+<x0>0.0, 0.0</x0>
+<x1>5.0e-3, 5.0e-3</x1>
+</volume_source>	
+-->
+
+<!--
+2mA, 0-5kV output
+https://www.3bscientific.com/us/high-voltage-power-supply-5-kv-230-v-5060-hz-1003310-u33010-230-3b-scientific,p_805_14272.html 
+-->
+<boundary_source name="cathode_eles" type="maxwellian"> <!--defines electrodes and electron properties-->
+<boundary>cathode</boundary>
+<material>e-</material>
+<current>0.002</current>			
+<temperature>500</temperature>	
+<v_drift>2000</v_drift> 
+</boundary_source>	
+
+</sources>
+
+<solver> <!--parameters of how to run the software-->
+<type>poisson</type>
+<max_it>5000</max_it>
+<tol>1e-3</tol> <!--time step?? unsure-->
+<linear>true</linear>
+<initial_only>false</initial_only>
+<skip>10</skip>
+</solver>
+
+<!--enable animation and tracing -->
+<animation start_it="1" frequency="200">
+<output type="2D" file_name="results/ani-field.vts" format="vtk">
+<scalars>phi, rho, p, nd.adm+,nd.adm,nd.e-, nd-ave.adm,nd-ave.adm+,nd-ave.e-</scalars>
+<vectors> [u.adm+,v.adm+],[u.adm,v.adm],[u-ave.adm,v-ave.adm],[u-ave.adm+,v-ave.adm+],[u-ave.e-,v-ave.e-]</vectors>
+</output>
+
+<output type="particles" file_name="results/ani-particles-i.vtp" format="vtk">
+<count>20000</count>
+<material>adm+</material>
+<rotate>false</rotate>
+</output>
+</animation>
+
+<particle_trace file_name="results/trace.vtp" format="vtk" output_format="ascii">
+<material>adm+</material>
+<random_ids>5,1000</random_ids>
+<start_it>2000</start_it>
+</particle_trace>
+
+<!-- enable restart save -->
+<restart>
+<it_save>500</it_save>
+<save>true</save>
+<load>false</load>
+<nt_add>10000</nt_add>
+</restart>
+
+<averaging frequency="5">
+<variables>nd.adm+, nd.adm, nd.e-,u.adm,v.adm,u.adm+,v.adm+,u.e-,v.e-</variables>
+</averaging>
+
+<!-- set time parameters 5e-8-->
+<time>
+<num_it>100000</num_it>
+<dt>1.e-10</dt>
+<steady_state>5000</steady_state>
+</time>	
+
+<!-- run simulation -->
+<starfish randomize="false" max_processors="2" />
+
+<!-- output -->
+<output type="2D" file_name="results/field.vts" format="vtk">
+<scalars>nodevol, phi, rho, p, nd.adm, nd.adm+, nd.e-, nd-ave.adm, nd-ave.adm+, nd-ave.e-</scalars>
+<vectors>[efi, efj], [u-ave.adm,v-ave.adm], [u-ave.adm+,v-ave.adm+],[u-ave.e-,v-ave.e-]</vectors>
+</output>
+
+<!-- surface -->
+<output type="boundaries" file_name="results/boundaries.vtp" format="vtk">
+<variables>deprate.adm, flux-normal.adm, deprate.adm+, flux-normal.adm+</variables>
+</output>
+
+<!-- particle positions and velocities for a scatter plot -->
+<output type="particles" file_name="results/particles-i.vtp" format="vtk">
+<count>10000</count>
+<material>adm+</material>
+<rotate>true</rotate>
+</output>
+
+</simulation>
