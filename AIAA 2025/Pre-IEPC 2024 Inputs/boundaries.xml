@@ -1,0 +1,66 @@
+<boundaries units="mm">
+
+<boundary name="wall1" type="solid" material="insulator" value="150" reverse="true">
+<path>
+M 0, 0 L
+0, 5
+</path>
+</boundary>
+
+<boundary name="wall2" type="solid" material="insulator" value="150" reverse="true">
+<path>
+M wall1:last L
+10, 5
+</path>
+</boundary>
+
+<boundary name="anode" type="solid" material="steel" value="2000" reverse="true">
+<path>
+M wall2:last L
+10, 15
+</path>
+</boundary>
+<!--rename "name" to have unique names
+M tank: last
+L 0, 0.1 (etc.)
+-->
+<boundary name="wall3" type="solid" material="insulator" value="150" reverse="true">
+<path>
+M anode:last L
+50, 15
+</path>
+</boundary>
+
+<boundary name="wall4" type="solid" material="insulator" value="150" reverse="true">
+<path>
+M wall3:last L
+50, 7
+</path>
+</boundary>
+
+
+<boundary name="wall5" type="solid" material="insulator" value="150" reverse="true">
+<path>
+M 51, 7 L
+51, 20
+</path>
+</boundary>
+
+<boundary name="cathode" type="solid" material="steel" value="-20" reverse="true">
+<path>
+M 50, 7 L
+50, 4
+51, 4
+51, 7
+</path>
+</boundary>
+
+<!--
+<boundary name="spot" type="virtual">
+<path>
+0.00, 0.241
+0.0905, 0.241
+</path>
+</boundary>
+-->
+</boundaries>
