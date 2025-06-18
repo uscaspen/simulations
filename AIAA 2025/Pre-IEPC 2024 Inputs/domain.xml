@@ -1,0 +1,19 @@
+<!-- domain file -->
+<domain type="xy"> <!--cuts simulation space into a grid-->
+
+<mesh type="uniform" name="inside">
+<origin>-0.0005,0.0</origin>
+<spacing>2e-4,2e-4</spacing>
+<nodes>256, 80</nodes>
+<mesh-bc wall="bottom" type="symmetry" /> 
+</mesh>
+
+<mesh type="uniform" name="plume">
+<origin>0.0505,0.0</origin>
+<spacing>2e-4,2e-4</spacing>
+<nodes>200, 80</nodes>
+<mesh-bc wall="bottom" type="symmetry" /> 
+<mesh-bc wall="right" type="dirichlet" value="0" />
+</mesh>
+
+</domain>
